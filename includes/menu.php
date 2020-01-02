@@ -10,7 +10,7 @@
 		</button>
 		<div id="navbar" class="navbar-collapse collapse"></div>
 
-		<form class="form-inline navbar-form navbar-right" action="connexion.php" method="POST">
+		<form class="form-inline navbar-form navbar-right" action="administration.php" method="POST">
 			<!-- <div class="form-group pr-1">
 				<input name="login" type="text" id="login" placeholder="Identifiant" class="form-control">
 			</div>
