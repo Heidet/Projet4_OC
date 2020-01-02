@@ -31,7 +31,6 @@
 //	echo 'Vous n utiliser pas internet explorer<br />'; 
 //}
 ?>
+
 <?php include("includes/footer.php"); ?> 
-
-
 </body>        
