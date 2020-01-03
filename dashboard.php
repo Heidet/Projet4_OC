@@ -1,4 +1,7 @@
 <?php
+require 'functions/auth.php';
+
+
 require 'functions/compteur.php'; //Recherche fichier qui contient la function nb de vues dans le dossier functions
 $annee = (int)date('Y'); // Variable année 
 $annee_selection = empty($_GET['annee']) ? null : (int)$_GET['annee']; // Si annee par defaut n'existe pas on est par defaut sur derniere année , converti le paramétre en entier. 
