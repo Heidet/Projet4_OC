@@ -19,3 +19,31 @@ function nombre_vues (): string { //chaine de caractère
     $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur';
     return file_get_contents($fichier); //Retourne fichier ..data/compteur
 }
+
+function nombre_vues_mois (int $annee, int $mois): int {
+    $mois = str_pad($mois, 2, '0', STR_PAD_LEFT); // mois / nombre de caractère / pad string 0 a rajouter. / strd pad left pour inversser le 0 et la valeurs du mois 
+    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois . '-' . '*';
+    $fichiers = glob($fichier);
+    $total = 0; 
+    foreach($fichiers as $fichier) {
+        $total += (int)file_get_contents($fichier);
+    }
+    return $total;
+}
+function nombre_vues_detail_mois (int $annee, int $mois): array {
+    $mois = str_pad($mois, 2, '0', STR_PAD_LEFT); // mois / nombre de caractère / pad string 0 a rajouter. / strd pad left pour inversser le 0 et la valeurs du mois 
+    $fichier = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'compteur-' . $annee . '-' . $mois . '-' . '*' ;
+    $fichiers = glob($fichier);
+    $visites = [];
+    foreach($fichiers as $fichier) {
+        $parties = explode('-', basename($fichier));
+        $visites[] = [
+
+            'annee' => $parties[1],
+            'mois' => $parties[2],
+            'jour' => $parties[3],
+            'visites' => file_get_contents($fichier)
+        ];
+    }
+    return $visites;
+}
