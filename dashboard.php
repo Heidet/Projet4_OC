@@ -1,5 +1,5 @@
 <?php
-require 'functions/auth.php';
+
 
 
 require 'functions/compteur.php'; //Recherche fichier qui contient la function nb de vues dans le dossier functions
