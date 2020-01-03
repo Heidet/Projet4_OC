@@ -15,22 +15,13 @@
 
 <body>
 <!---- Include Menu ---->
-<?php include("includes/menu.php"); ?> 
+<?php include("elements/menu.php"); ?> 
 <!---- Include slider ---->
-<?php include("includes/slide.php"); ?> 
+<?php include("elements/slide.php"); ?> 
 <?php
 		echo $_SERVER['HTTP_USER_AGENT'] ;
 		echo '<br>';
 ?>
 
-<?php
-//if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
-//   echo 'Vous utilisez Internet Explorer<br />';
-//}
-//else {
-//	echo 'Vous n utiliser pas internet explorer<br />'; 
-//}
-?>
-
-<?php include("includes/footer.php"); ?> 
+<?php include("elements/footer.php"); ?> 
 </body>        
