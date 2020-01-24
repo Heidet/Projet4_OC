@@ -1,9 +1,9 @@
 <?php 
 function est_connecte (): bool {
-    if (session_status () === PHP_SESSION_NONE) {
-        session_start();
+    if (session_status () === PHP_SESSION_NONE) { // si session status et en base sur php session none 
+        session_start(); // alors on lance une session 
     }
-    return !empty($_SESSION['connecte']);
+    return !empty($_SESSION['connecte']); 
 }
 
 function forcer_utilisateur_connecte (): void {
