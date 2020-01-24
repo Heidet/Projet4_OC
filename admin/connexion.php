@@ -1,6 +1,6 @@
-<?php 
-include("elements/header.php");
-?>
+<!---- Include Menu ---->
+<?php include("elements/header.php"); ?> 
+
 
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
