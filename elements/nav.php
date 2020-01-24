@@ -27,4 +27,3 @@
       </form>
     </div>
   </nav>
-  <main role="main" class="container">

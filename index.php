@@ -1,5 +1,7 @@
 <!---- Include Menu ---->
 <?php include("elements/header.php"); ?> 
+<!---- Include Menu ---->
+<?php include("elements/nav.php"); ?> 
 <!---- Include slider ---->
 <?php include("elements/slide.php"); ?> 
 <?php
