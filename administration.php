@@ -12,7 +12,7 @@
     }
     else // Si non affichage classique ( a voir si inclure dans SI NON SI )
     {
-        echo '<p>Bienvenu</p>';
+        echo '<p>Erreur de mot de passe</p>';
     }
     ?>
     

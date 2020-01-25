@@ -25,7 +25,7 @@ class Post {
         $req = $DB->query("SELECT * FROM posts ORDER BY id DESC"); //requet tout les posts
         foreach($req->fetchAll() as $post){ //parcourir les réponse et stockage variable post
             array_push($posts, new Post(
-                $DB,
+                $DB = null,
                 $post['id'],
                 $post['title'],
                 $post['date'],

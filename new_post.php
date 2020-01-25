@@ -12,7 +12,7 @@ if (isset($_POST) && !empty($_POST)) { // variable post déjà déclarer et cont
     $content =  $_POST['content'];
     //$sql = "INSERT INTO `posts` (`title`, `date`, `content`) VALUES ('" . $_POST['title'] . "',  CURRENT_TIMESTAMP, '" . $_POST['content'] . "');";
     //$pdo->query($sql);
-    $req = $pdo->prepare("INSERT INTO `posts` (`title`, `date`, `content`) VALUES (:title, CURRENT_TIMESTAMP, :content);");
+    $req = $pdo->prepare("INSERT INTO `posts` (`title`, `date`, `content` ) VALUES (:title, CURRENT_TIMESTAMP, :content);");
     $req->bindParam(':title', $title );
     $req->bindParam(':content', $content);
     $req->execute();
@@ -23,16 +23,10 @@ if (isset($_POST) && !empty($_POST)) { // variable post déjà déclarer et cont
     echo 'contenu: &nbsp;' . $_POST['content']; */
     $req = $pdo->query("SELECT * FROM posts ORDER BY id DESC LIMIT 1");
     $post = $req->fetch();
-    echo $post['title'] .  "<br />";
+    echo $post['title'] .  "<br />"; // test echo post 
     echo $post['content'] . "<br />";
 } else {
-    ?>
-    <form method="post">
-        <input type="text" name="title" placeholder="Titre" />
-        <br />
-        <textarea name="content" placeholder="Contenu" rows="5" cols="64"></textarea>
-        <br />
-        <button type="submit">Ajouter un post</button>
-    </form>
-    <?php
+    
+    require_once('tinymce.php');
+
 }

@@ -4,10 +4,6 @@
 <?php include("elements/nav.php"); ?> 
 <!---- Include slider ---->
 <?php include("elements/slide.php"); ?> 
-<?php
-		echo $_SERVER['HTTP_USER_AGENT'] ;
-		echo '<br>';
-?>
 
 <?php 
 require_once('database.php');
@@ -24,21 +20,23 @@ foreach($posts as $post) {
     echo "<p>" . $post['date'] . "</p>";
     echo "<hr />"; **/
     ?>
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><?= $post['title'] ?></h3>
-        </div>
-        <div class="panel-body">
-            <p style="text-align: justify;"><?= $post['content'] ?></p>
+        <div class="container">
+            <div class="row">
+                <div class="card mb-4">
 
-            <hr />
+                    <div class="card-body">
+                        <h2 class="card-title"><?= $post['title'] ?></h2>
+                        <p class="card-text"><?= $post['content'] ?></p>
+                        <a href="#" class="btn btn-primary">Lire plus &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted"><?= $post['date'] ?></div>
+                </div>
+            </div>
         </div>
-        <div class="panel-footer">
-            <p><?= $post['date'] ?></p>
-        </div>
-    </div>
     <?php
 }   
 ?>
+ 
+		
 
 <?php include("elements/footer.php"); ?> 
