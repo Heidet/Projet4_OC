@@ -1,5 +1,5 @@
 <!---- Include Menu ---->
-<?php include("elements/header.php"); ?> 
+<?php include("views/template.php"); ?> 
 
 
 <div class="container">

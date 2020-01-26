@@ -1,7 +1,5 @@
 <!---- Include Menu ---->
-<?php include("elements/header.php"); ?> 
-<!---- Include Menu ---->
-<?php include("elements/nav.php"); ?> 
+<?php include("views/template.php"); ?> 
 <!---- Include slider ---->
 <?php include("elements/slide.php"); ?> 
 
@@ -14,7 +12,7 @@ $posts = $req->fetchAll();
 //echo "<pre>";
 //print_r($posts); 
 //echo "</pre>";
-foreach($posts as $post) {
+foreach($posts as $post) { // rechercher tout les posts par post
     /**echo "<h1>" . $post['title'] . "</h1>";
     echo "<p>" . $post['content'] . "</p>";
     echo "<p>" . $post['date'] . "</p>";
@@ -36,7 +34,3 @@ foreach($posts as $post) {
     <?php
 }   
 ?>
- 
-		
-
-<?php include("elements/footer.php"); ?> 

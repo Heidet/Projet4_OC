@@ -1,4 +1,4 @@
-<?php include("../elements/header.php"); ?>
+<?php include("../views/template.php"); ?>
 
 <div class="container pt-5" id="detail_post">
     <p class="bouton_retour">
@@ -35,5 +35,3 @@
         </div>
     </div>
 </div>
-
-<?php include("../elements/footer.php"); ?>
