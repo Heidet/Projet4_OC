@@ -1,14 +1,15 @@
 <!---- Include Menu ---->
 <?php include("views/template.php"); ?> 
 <!---- Include slider ---->
-<?php include("elements/slide.php"); ?> 
+<?php include("elements/caroussel.php"); ?> 
 
 <?php 
-require_once('database.php');
+
+require_once("models/Post.php");
 
 $req = $DB->query("SELECT * FROM posts ORDER BY id DESC");
 //$post = $req->fetch();
-$posts = $req->fetchAll();
+$posts = getAllPosts();
 //echo "<pre>";
 //print_r($posts); 
 //echo "</pre>";

@@ -1,5 +1,7 @@
 <?php 
 
+require_once('config.php');
+
 class Post {
     private $id; //id post  
     private $title; 
@@ -8,8 +10,8 @@ class Post {
 
     private $DB;
 
-    public function __construct($DB, $id = null, $title = null, $date = null, $contact = null) {
-        $this->DB = $DB;
+    public function __construct($id = null, $title = null, $date = null, $contact = null) {
+        $this->DB = new PDO('mysql:host=' . $DB_HOST . ';port=' . $DB_PORT . ';dbname=' . $DB_BASE, $DB_USER, $DB_PASS); // création connecteur à la BDD  (init dans constructeur)
         $this->id = $id;
         $this->title = $title;
         $this->date = $date;
@@ -18,21 +20,6 @@ class Post {
     
     public function __toString() {
         return $this->title;
-    }
-
-    public static function getAllPosts($DB){ //appel méthode static à appeler sans instancier
-        $posts = array(); // list posts
-        $req = $DB->query("SELECT * FROM posts ORDER BY id DESC"); //requet tout les posts
-        foreach($req->fetchAll() as $post){ //parcourir les réponse et stockage variable post
-            array_push($posts, new Post(
-                $DB = null,
-                $post['id'],
-                $post['title'],
-                $post['date'],
-                $post['content']
-            )); //création objet stocket dans posts . 
-        }
-        return $posts; // returne liste d'objet posts. 
     }
     
     public function getTitle() { // recupération title 
@@ -67,4 +54,19 @@ class Post {
             $resp = $req->execute();  // stock le résultat de la requete dans une variable resp 
         }
     }
+}
+
+function getAllPosts(){ // Méthode de récupération tout les posts de la DB. 
+    $posts = array(); // list posts
+    $DB = new PDO('mysql:host=' . $DB_HOST . ';port=' . $DB_PORT . ';dbname=' . $DB_BASE, $DB_USER, $DB_PASS);
+    $req = $DB->query("SELECT * FROM posts ORDER BY id DESC"); //requet tout les posts
+    foreach($req->fetchAll() as $post){ //parcourir les réponse et stockage variable post
+        array_push($posts, new Post(
+            $post['id'],
+            $post['title'],
+            $post['date'],
+            $post['content']
+        )); 
+    }
+    return $posts; // returne liste d'objet posts. 
 }
