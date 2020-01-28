@@ -5,10 +5,10 @@ ini_set("display_errors", 1);
 <?php 
 error_reporting(E_ALL);
 if (isset($_POST) && !empty($_POST)) { // variable post déjà déclarer et contenu variable vide 
-    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=blog', 'blog', 'blog123');
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,true); 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $title = $_POST['title'];
+    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=blog', 'blog', 'blog123'); 
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,true);  
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    $title = $_POST['title']; 
     $content =  $_POST['content'];
     //$sql = "INSERT INTO `posts` (`title`, `date`, `content`) VALUES ('" . $_POST['title'] . "',  CURRENT_TIMESTAMP, '" . $_POST['content'] . "');";
     //$pdo->query($sql);
@@ -27,6 +27,6 @@ if (isset($_POST) && !empty($_POST)) { // variable post déjà déclarer et cont
     echo $post['content'] . "<br />";
 } else {
     
-    require_once('tinymce.php');
+    require_once('views/backend/createPost.php');
 
 }

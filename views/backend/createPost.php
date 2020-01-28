@@ -1,7 +1,10 @@
-<?php include("view/template.php"); ?> 
-<body>
 
-    <form method="post">
+
+<?php include("views/template.php"); ?> 
+
+
+<div class="container-fluid">
+    <form class="pt-5" method="post">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Titre du Billet</span>
@@ -14,4 +17,5 @@
         <br />
         <button type="submit">Ajouter un post</button>
     </form>
+</div>
   

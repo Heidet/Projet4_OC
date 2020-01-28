@@ -5,7 +5,6 @@
 
 <?php 
 
-
 require_once("models/Post.php");
 
 //$post = $req->fetch();
