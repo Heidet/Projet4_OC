@@ -1,6 +1,6 @@
 
 
-<?php include("views/template.php"); ?> 
+<?php include("../template.php"); ?> 
 
 
 <div class="container-fluid">
@@ -15,7 +15,7 @@
         <br />
         <textarea name="content" placeholder="Contenu" rows="5" cols="64"></textarea>
         <br />
-        <button type="submit">Ajouter un post</button>
+        <button type="submit" class="btn btn-success">Ajouter</button>
     </form>
 </div>
   
