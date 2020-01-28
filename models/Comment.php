@@ -12,7 +12,7 @@ class Comment {
     private $DB;
 
     public function __construct($id = null, $fullname = null, $content = null,  $date = null, $post_id = null) {
-        $this->DB = new PDO('mysql:host=' . $DB_HOST . ';port=' . $DB_PORT . ';dbname=' . $DB_BASE, $DB_USER, $DB_PASS); // création connecteur à la BDD  (init dans constructeur)
+        $this->DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS); // création connecteur à la BDD  (init dans constructeur)
         $this->id = $id;
         $this->fullname = $fullname;
         $this->content = $content;

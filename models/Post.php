@@ -1,6 +1,7 @@
 <?php 
 
-require_once('config.php');
+
+require_once('./config.php');
 
 class Post {
     private $id; //id post  
@@ -11,7 +12,7 @@ class Post {
     private $DB;
 
     public function __construct($id = null, $title = null, $date = null, $contact = null) {
-        $this->DB = new PDO('mysql:host=' . $DB_HOST . ';port=' . $DB_PORT . ';dbname=' . $DB_BASE, $DB_USER, $DB_PASS); // création connecteur à la BDD  (init dans constructeur)
+        $this->DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS); // création connecteur à la BDD  (init dans constructeur)
         $this->id = $id;
         $this->title = $title;
         $this->date = $date;
@@ -42,6 +43,21 @@ class Post {
     public function setContent($content){
         $this->content = $content;
     }
+
+    public function getComment(){
+        $comments = array(); // liste de commentaire 
+        $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
+        $req = $DB->query("SELECT * FROM comments ORDER BY id DESC"); //requet tout les commentaire du plus recent au plus anciens 
+        foreach($req->fetchAll() as $comment){ // POUR CHAQUE commentaire 
+            array_push($comments, new Post( // Ajout dans le tableau comments 
+                $post['id'],
+                $post['fullname'],
+                $post['content'],
+                $post['date']
+            )); 
+        }
+        return $comments; // returne liste d'objet commentaire. 
+    }
     
 
     public function save(){
@@ -58,7 +74,7 @@ class Post {
 
 function getAllPosts(){ // Méthode de récupération tout les posts de la DB. 
     $posts = array(); // list posts
-    $DB = new PDO('mysql:host=' . $DB_HOST . ';port=' . $DB_PORT . ';dbname=' . $DB_BASE, $DB_USER, $DB_PASS);
+    $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
     $req = $DB->query("SELECT * FROM posts ORDER BY id DESC"); //requet tout les posts
     foreach($req->fetchAll() as $post){ //parcourir les réponse et stockage variable post
         array_push($posts, new Post(

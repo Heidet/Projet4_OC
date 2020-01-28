@@ -5,9 +5,9 @@
 
 <?php 
 
+
 require_once("models/Post.php");
 
-$req = $DB->query("SELECT * FROM posts ORDER BY id DESC");
 //$post = $req->fetch();
 $posts = getAllPosts();
 //echo "<pre>";
@@ -24,11 +24,11 @@ foreach($posts as $post) { // rechercher tout les posts par post
                 <div class="card mb-4">
 
                     <div class="card-body">
-                        <h2 class="card-title"><?= $post['title'] ?></h2>
-                        <p class="card-text"><?= $post['content'] ?></p>
+                        <h2 class="card-title"><?= $post->getTitle() ?></h2>
+                        <p class="card-text"><?= $post->getContent() ?></p>
                         <a href="#" class="btn btn-primary">Lire plus &rarr;</a>
                     </div>
-                    <div class="card-footer text-muted"><?= $post['date'] ?></div>
+                    <div class="card-footer text-muted"><?= $post->getDate() ?></div>
                 </div>
             </div>
         </div>
