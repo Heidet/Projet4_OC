@@ -57,7 +57,7 @@ class CommentManager {
         if (!empty($this->id)){  // Update si ID vide / new 
 
         } else { // si non nouveau comment
-            $req = $this->DB->prepare("INSERT INTO `comments` (`fullname`, `content`, `date`, `post_id`) VALUES (:fullname, :content, CURRENT_TIMESTAMP, :post_id);");
+            $req = $this->DB->prepare("INSERT INTO `comments` (`fullname`, `content`, `date`, `post_id`) VALUES (:fullname, :content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\'), :post_id);");
             $req->bindParam(':fullname', $this->fullname); //requete preparer inserer les données de la variable dans la colonne. 
             $req->bindParam(':content', $this->content); 
             $req->bindParam(':post_id', $this->post_id);
