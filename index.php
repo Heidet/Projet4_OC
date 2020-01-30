@@ -5,7 +5,7 @@
 
 <?php 
 
-require_once("models/Post.php");
+require_once("models/PostManager.php");
 
 //$post = $req->fetch();
 $posts = getAllPosts();
@@ -25,7 +25,7 @@ foreach($posts as $post) { // rechercher tout les posts par post
                     <div class="card-body">
                         <h2 class="card-title"><?= $post->getTitle() ?></h2>
                         <p class="card-text"><?= $post->getContent() ?></p>
-                        <a href="#" class="btn btn-primary">Lire plus &rarr;</a>
+                        <a href="views/frontend/detailPost.php?post_id=<?= $post->getId() ?>" class="btn btn-primary">Lire plus &rarr;</a> <!-- Transmition ID post par URL -->
                     </div>
                     <div class="card-footer text-muted"><?= $post->getDate() ?></div>
                 </div>

@@ -1,6 +1,16 @@
 
-<?php include("../template.php"); ?> 
 
+<?php include("../template.php"); ?> 
+<?php require_once("../../models/PostManager.php"); ?> 
+
+<?php 
+    $post_id = intval($_GET['post_id']);  //assure que le paramétre de l'url et bien un entière 
+    //echo $post_id; 
+    $post = getPostById($post_id);
+    $comments = $post->getComments();
+
+
+?>
 
 <div class="container" id="page_chapitre">
 
@@ -10,23 +20,26 @@
     </a>
 </p>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h1 class="panel-title">
-            <!-- //htmlspecialchars($post['title']) ?>-->
-          <!-- <em>le  //$post['creation_date_fr'] ?></em>-->
-        </h1>
-    </div>
+<div class="card mb-4">
 
-    <div class="panel-body">
-        <?= nl2br($post['content']) ?> 
-    </div>
+        <div class="card-body">
+            <h2 class="card-title"><?= $post->getTitle() ?></h2>
+            <p class="card-text"><?= $post->getContent() ?></p>
+        </div>
+            <div class="card-footer text-muted"><?= $post->getDate() ?></div>
+</div>
 
-    <div class="panel-footer">
-        <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+    <?php foreach ($comments as $comment): ?> <!-- parcourir les comment  -->
+            <h3><?= $comment->getFullName() ?> </h3>  <!-- afficher le nom  -->
+            <h3><?= $comment->getContent() ?> </h3> <!-- parcourir le contenu  -->
+            <h3><?= $comment->getDate() ?> </h3>    <!-- parcourir les date  -->
+    <?php endforeach; ?><!-- stop parcourir -->
+   
+
+        <form method="post">
             <h2>Commentaires</h2>
             <div class="form-group">
-                <label for="author">Nom :</label>
+                <label for="author">Nom : </label>
                 <input type="text" id="author" name="author" class="form-control input-sm"/>
             </div>
             <div class="form-group">
@@ -42,4 +55,3 @@
 
 </div>
 
-</div>

@@ -2,7 +2,7 @@
 
 require_once('config.php');
 
-class Comment {
+class CommentManager {
     private $id; //id post  
     private $fullname; 
     private $content;

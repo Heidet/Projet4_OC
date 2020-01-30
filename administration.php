@@ -1,19 +1,31 @@
-    <head>
-        <meta charset="utf-8" />
-        <title>Administration</title>
-    </head>
-    
-    
-        <?php //Si le mot de passe et l'identifiant n'est pas bon alors on inclus toujours le formulaire d'identification. 
-    if (!isset($_POST['mot_de_passe']) OR $_POST['mot_de_passe'] != "kangourou")
+
+<?php require_once('models/Author.php') ?>
+
+<?php 
+
+    //  Récupération de l'utilisateur et de son pass hashé
+    $req = $DB->prepare('SELECT id, pass FROM membres WHERE username = :hash');
+    $req->execute(array(
+        'username' => $pseudo));
+    $resultat = $req->fetch();
+
+    // Comparaison du pass envoyé via le formulaire avec la base
+    $isPasswordCorrect = password_verify($_POST['hash'], $resultat['hash']);
+
+    if (!$resultat)
     {
-        include("admin/connexion.php");
-        
+        echo 'Mauvais identifiant ou mot de passe !';
     }
-    else // Si non affichage classique ( a voir si inclure dans SI NON SI )
+    else
     {
-        echo '<p>Erreur de mot de passe</p>';
+        if ($isPasswordCorrect) {
+            session_start();
+            $_SESSION['id'] = $resultat['id'];
+            $_SESSION['username'] = $pseudo;
+            echo 'Vous êtes connecté !';
+        }
+        else {
+            echo 'Mauvais identifiant ou mot de passe !';
+        }
     }
-    ?>
-    
    

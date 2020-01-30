@@ -1,4 +1,4 @@
-------------- Table Posts -------------
+------------- Table Posts Manager -------------
 CREATE TABLE `blog`.`posts` ( 
     `id` INT NOT NULL AUTO_INCREMENT ,
     `title` VARCHAR(64) NOT NULL ,
@@ -29,3 +29,7 @@ CREATE TABLE `blog`.`author` (
     PRIMARY KEY (`id`), 
     UNIQUE `username` (`username`)
     ) ENGINE = InnoDB;
+
+
+
+INSERT INTO `comments` (`id`, `fullname`, `content`, `date`, `post_id`) VALUES ('1', 'jeremy', 'ce blog pu la merde ', CURRENT_TIMESTAMP, '9');

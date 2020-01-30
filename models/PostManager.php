@@ -1,8 +1,9 @@
 <?php 
 
-require_once('./config.php');
+require_once('config.php');
+require_once('CommentManager.php');
 
-class Post {
+class PostManager {
     private $id; //id post  
     private $title; 
     private $date;
@@ -10,17 +11,22 @@ class Post {
 
     private $DB;
 
-    public function __construct($id = null, $title = null, $date = null, $contact = null) {
-        $this->DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS); // création connecteur à la BDD  (init dans constructeur)
+    public function __construct($id = null, $title = null, $date = null, $content = null) {
+        $this->DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);// constante // création connecteur à la BDD  (init dans constructeur)
         $this->id = $id;
         $this->title = $title;
         $this->date = $date;
-        $this->contact = $contact;
+        $this->contact = $content;
     }
     
     public function __toString() {
         return $this->title;
     }
+
+    public function getId() { // recupération id // accesseur 
+        return $this->id; // retourne l'id récuperer
+    }
+    
     
     public function getTitle() { // recupération title 
         return $this->title; // retourne le titre récuperer
@@ -43,16 +49,19 @@ class Post {
         $this->content = $content;
     }
 
-    public function getComment(){
+    public function getComments(){
         $comments = array(); // liste de commentaire 
         $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
-        $req = $DB->query("SELECT * FROM comments ORDER BY id DESC"); //requet tout les commentaire du plus recent au plus anciens 
+        $req = $DB->prepare("SELECT * FROM comments WHERE post_id = :post_id"); //requet tout les commentaire du plus recent au plus anciens 
+        $req->bindParam(':post_id', $this->id); // requete securisé Clé , valeur 
+        $req->execute();
         foreach($req->fetchAll() as $comment){ // POUR CHAQUE commentaire 
-            array_push($comments, new Post( // Ajout dans le tableau comments 
-                $post['id'],
-                $post['fullname'],
-                $post['content'],
-                $post['date']
+            array_push($comments, new CommentManager( // Ajout dans le tableau comments les informations
+                $comment['id'],
+                $comment['fullname'],
+                $comment['content'],
+                $comment['date'],
+                $this->id
             )); 
         }
         return $comments; // returne liste d'objet commentaire. 
@@ -76,7 +85,7 @@ function getAllPosts(){ // Méthode de récupération tout les posts de la DB.
     $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
     $req = $DB->query("SELECT * FROM posts ORDER BY id DESC"); //requet tout les posts
     foreach($req->fetchAll() as $post){ //parcourir les réponse et stockage variable post
-        array_push($posts, new Post(
+        array_push($posts, new PostManager(
             $post['id'],
             $post['title'],
             $post['date'],
@@ -84,4 +93,18 @@ function getAllPosts(){ // Méthode de récupération tout les posts de la DB.
         )); 
     }
     return $posts; // returne liste d'objet posts. 
+}
+
+function getPostById($post_id){
+    $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
+    $req = $DB->prepare("SELECT * FROM posts WHERE id = :post_id"); //selectionne moi tout les champs de la table post ou l'id et égale à post ID 
+    $req->bindParam(':post_id', $post_id); // requete preparer sécurisé au injection 
+    $req->execute();  // execution de la requete . 
+    $post = $req->fetch(); //
+    return new PostManager(
+        $post['id'],
+        $post['title'],
+        $post['date'],
+        $post['content']
+    );
 }
