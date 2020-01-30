@@ -1,21 +1,25 @@
+<?php
+error_reporting(E_ALL); // reporting des erreur sur la page
+ini_set("display_errors", 1);
+?>
+<?php 
+error_reporting(E_ALL);
+if (isset($_POST) && !empty($_POST)) { // si variable post déjà déclarer et contenu variable vide 
+    $pdo = new PDO('mysql:host=localhost;port=3306;dbname=blog', 'blog', 'blog123'); 
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,true);  
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    $title = $_POST['title']; 
+    $content =  $_POST['content'];
+    $req = $pdo->prepare("INSERT INTO `posts` (`title`, `date`, `content` ) VALUES (:title, CURRENT_TIMESTAMP, :content);");
+    $req->bindParam(':title', $title ); //Lie un paramètre à un nom de variable spécifique 
+    $req->bindParam(':content', $content); //Lie un paramètre à un nom de variable spécifique 
+    $req->execute();
+    $req = $pdo->query("SELECT * FROM posts ORDER BY id DESC LIMIT 1");
+    $post = $req->fetch();
+    echo $post['title'] .  "<br />"; // test echo post 
+    echo $post['content'] . "<br />";
+} else {
+    
+    require_once('template.php');
 
-
-<?php include("../template.php"); ?> 
-
-
-<div class="container-fluid">
-    <form class="pt-5" method="post">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Titre du Billet</span>
-            </div>
-            <input type="text" name="title" placeholder="Titre" aria-label="Username" aria-describedby="basic-addon1" />
-        </div>
-
-        <br />
-        <textarea name="content" placeholder="Contenu" rows="5" cols="64"></textarea>
-        <br />
-        <button type="submit" class="btn btn-success">Ajouter</button>
-    </form>
-</div>
-  
+}

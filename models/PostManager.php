@@ -95,7 +95,7 @@ function getAllPosts(){ // Méthode de récupération tout les posts de la DB.
     return $posts; // returne liste d'objet posts. 
 }
 
-function getPostById($post_id){
+function getPostById($post_id){ //methode laison ID comment 
     $DB = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_BASE, DB_USER, DB_PASS);
     $req = $DB->prepare("SELECT * FROM posts WHERE id = :post_id"); //selectionne moi tout les champs de la table post ou l'id et égale à post ID 
     $req->bindParam(':post_id', $post_id); // requete preparer sécurisé au injection 

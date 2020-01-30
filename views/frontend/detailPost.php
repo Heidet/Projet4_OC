@@ -9,10 +9,9 @@
 
 ?>
 
-<div class="container" id="page_chapitre">
-
-    <p class="bouton_retour">
-        <a href="index.php">
+<div class="container" style="margin-top: 15px;" id="page_chapitre">
+    <p class="bouton_retour pt3">
+        <a href="shttp://localhost:8888/">
             <button class="btn btn-info">Retour</button>
         </a>
     </p>
@@ -24,6 +23,7 @@
         </div>
         <div class="card-footer text-muted"><?= $post->getDate() ?></div>
     </div>
+
     <?php foreach ($comments as $comment): ?><!-- parcourir les comment  -->
     <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -35,8 +35,6 @@
     </div>
     <?php endforeach; ?><!-- stop parcourir -->
   
-
-
     <form method="post">
         <h2>Commentaires</h2>
         <div class="form-group">
@@ -51,7 +49,5 @@
             <input type="submit" class="btn btn-success" />
         </div>
     </form>
-
 </div>
 
-</div>
