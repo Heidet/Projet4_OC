@@ -1,4 +1,4 @@
-<?php include("../template.php"); ?>
+<?php require("template.php"); ?>
 <?php require_once("../../models/PostManager.php"); ?>
 
 <?php 
