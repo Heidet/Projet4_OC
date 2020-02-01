@@ -72,7 +72,7 @@ class PostManager {
         if (!empty($this->id)){ // si pas vide uptade 
 
         } else { // si non nouveau post
-            $req = $this->DB->prepare("INSERT INTO `posts` (`title`, `date`, `content`) VALUES (:title, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\'), :content);");
+            $req = $this->DB->prepare("INSERT INTO `posts` (`title`, `date`, `content`) VALUES (:title, CURRENT_TIMESTAMP), :content);");
             $req->bindParam(':title', $this->title);
             $req->bindParam(':content', $this->content);
             $resp = $req->execute();  // stock le résultat de la requete dans une variable resp 

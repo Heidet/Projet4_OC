@@ -21,7 +21,7 @@ foreach($posts as $post) { // rechercher tout les posts par post
                     <div class="card-body">
                         <h2 class="card-title"><?= $post->getTitle() ?></h2>
                         <p class="card-text"><?= $post->getContent() ?></p>
-                        <a href="views/frontend/detailPost.php?post_id=<?= $post->getId() ?>" class="btn btn-primary">Lire plus &rarr;</a> <!-- Transmition ID post par URL -->
+                        <a href="index.php?action=detailPost&post_id=<?= $post->getId() ?>" class="btn btn-primary">Lire plus &rarr;</a> <!-- Transmition ID post par URL -->
                     </div>
                     <div class="card-footer text-muted"><?= $post->getDate() ?></div>
                 </div>

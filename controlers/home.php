@@ -5,3 +5,4 @@ $posts = getAllPosts();
 
 include_once('views/frontend/home.php');
 
+

@@ -1,11 +1,26 @@
-<?php require("template.php"); ?>
-<?php require_once("../../models/PostManager.php"); ?>
+<?php require("views/frontend/template.php"); ?>
+<?php require_once("models/PostManager.php"); ?>
+<?php require_once("models/CommentManager.php"); ?>
 
 <?php 
     $post_id = intval($_GET['post_id']);  //assure que le paramétre de l'url et bien un entière 
     //echo $post_id; 
     $post = getPostById($post_id);
     $comments = $post->getComments();
+
+    if(isset($_POST) && isset($_POST['author'])) { // 
+    $comment = new CommentManager(
+        null, 
+        $_POST['author'], 
+        $_POST['comment'], 
+        $post_id
+    );
+
+    echo $comment->save();
+    
+    echo 'comment sauvegarder';
+    }
+    
 
 ?>
 
@@ -28,8 +43,8 @@
     <div class="media mb-4">
         <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
         <div class="media-body">
-            <h5 class="mt-0"><?= $comment->getFullName() ?></h5> <!-- afficher le nom  -->
-                <p><?= $comment->getContent() ?></p> <!-- parcourir le contenu  -->
+            <h5 class="mt-0"><?= htmlspecialchars($comment->getFullName()) ?></h5> <!-- afficher le nom  -->
+                <p><?= htmlspecialchars($comment->getContent()) ?></p> <!-- parcourir le contenu  -->
                 <p>Poster le : <date><?= $comment->getDate() ?></date></p><!-- parcourir les date  -->
         </div>
     </div>

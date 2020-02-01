@@ -2,6 +2,9 @@
 
 require_once('config.php');
 
+error_reporting(E_ALL); // reporting des erreur sur la page
+ini_set("display_errors", 1);
+
 class CommentManager {
     private $id; //id post  
     private $fullname; 
@@ -20,9 +23,14 @@ class CommentManager {
         $this->post_id = $post_id;
     }
     
-    public function __toString() {
+    public function __toString() { 
         return $this->content;
     }
+
+    public function getId() { // recupération id // accesseur 
+        return $this->id; // retourne l'id récuperer
+    }
+    
     
     public function getFullname() { // recupération title 
         return $this->fullname; // retourne le titre récuperer
@@ -54,14 +62,22 @@ class CommentManager {
     
 
     public function save(){
-        if (!empty($this->id)){  // Update si ID vide / new 
-
+        if (!empty($this->id) && $this->id !== null){  // Update si ID vide / new 
+            echo 'aaa';
         } else { // si non nouveau comment
-            $req = $this->DB->prepare("INSERT INTO `comments` (`fullname`, `content`, `date`, `post_id`) VALUES (:fullname, :content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\'), :post_id);");
+            echo 'bbb';
+            debug($this->DB);
+            $req = $this->DB->prepare("INSERT INTO `comments` (`fullname`, `content`, `date`, `post_id`) VALUES (:fullname, :content, CURRENT_TIMESTAMP, :post_id);");
             $req->bindParam(':fullname', $this->fullname); //requete preparer inserer les données de la variable dans la colonne. 
             $req->bindParam(':content', $this->content); 
             $req->bindParam(':post_id', $this->post_id);
+            echo 'ccc'; 
+            debug($req);
             $resp = $req->execute();  // stock le résultat de la requete dans une variable resp 
+            echo 'ddd';
+            debug($resp);
+            return $resp;
+
         }
     }
 }
