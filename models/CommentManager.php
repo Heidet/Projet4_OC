@@ -7,7 +7,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY id DESC');
-        $comments->execute(array($postId));
+        $comments->execute(array($postId)); // execute la requete SQL préparer avec passage paramétre par tableau au lieu d'utiliser des bindparam
 
         return $comments;
     }

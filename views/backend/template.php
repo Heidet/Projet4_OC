@@ -60,6 +60,8 @@
         </div>
     </nav>
 
+    <?php echo $contentPage ?>
+
     
 
 <body>

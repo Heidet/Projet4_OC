@@ -1,3 +1,5 @@
+<?php $title = 'Ajoute un post'; ?>
+<?php ob_start(); ?>
 <div class="container-fluid">
           <form class="pt-5" method="post">
               <div class="input-group mb-3">
@@ -13,4 +15,6 @@
               <button type="submit" class="btn btn-success">Ajouter</button>
           </form>
       </div>
-  
+<?php $contentPage =  ob_get_clean();?> 
+
+<?php require('template.php')?>
