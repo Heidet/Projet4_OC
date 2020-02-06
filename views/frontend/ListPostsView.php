@@ -1,30 +1,28 @@
-<?php $title = 'Mon blog'; ?>
 
-<?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
+<?php $title = 'Jean Forteroche'; ?>
 
+<?php ob_start(); 
+while ($data = $posts->fetch()) { 
+    /**echo "<h1>" . $post['title'] . "</h1>";
+    echo "<p>" . $post['content'] . "</p>";
+    echo "<p>" . $post['date'] . "</p>";
+    echo "<hr />"; **/
+    ?>
+        <div class="container">
+            <div class="row">
+                <div class="card mb-4">
 
-<?php
-while ($data = $posts->fetch())
-{
-?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= $data['date'] ?></em>
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
-    </div>
-<?php
-}
-$posts->closeCursor();
+                    <div class="card-body">
+                        <h2 class="card-title"><?= htmlspecialchars($data['title']) ?></h2>
+                        <p class="card-text"><?= nl2br(htmlspecialchars($data['content'])) ?></p>
+                        <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">Lire plus &rarr;</a> <!-- Transmition ID post par URL -->
+                    </div>
+                    <div class="card-footer text-muted"><?= $data['date'] ?></div>
+                </div>
+            </div>
+        </div>
+    <?php
+}   
 ?>
 <?php $contentPage = ob_get_clean(); ?>
-
 <?php require('template.php'); ?>
