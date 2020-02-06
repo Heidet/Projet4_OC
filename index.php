@@ -1,23 +1,37 @@
 <?php
+require_once('controller/frontend.php');
+require_once('controller/backend.php');
 
-function debug($obj) {
-    echo "<pre>";
-    print_r($obj);
-    echo "</pre>";
-}
 
-if(isset($_GET) && isset($_GET['action'])){ // si action est défini dans la variable GET il et égale a son contenu 
-    $action = $_GET['action'];
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'listPosts') {
+        listPosts();
+    }
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoy�';
+        }
+    }
+    elseif ($_GET['action'] == 'addComment') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (!empty($_POST['fullname']) && !empty($_POST['content'])) {
+                addComment($_GET['id'], $_POST['fullname'], $_POST['content']);
+            }
+            else {
+                echo 'Erreur : tous les champs ne sont pas remplis !';
+            }
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoy�';
+        }
+    }
+    elseif ($_GET['action'] == 'createPost') { 
+            createPost();
+    }
 }
 else {
-    $action = 'home';
+    listPosts();
 }
-$routes = [
-    'home'=>'controlers/home.php',
-    'detailPost'=>'controlers/detailPost.php',
-];
-
-include_once($routes[$action]);
-// il va falloir routeur l'index sur le controleur 
-//Chaque action utilisateur va devoir être defini (connexion , vue poste , ect ect)
-// Exemple avec ation get action home 
