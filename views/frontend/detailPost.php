@@ -19,12 +19,12 @@
 
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+        <label for="fullname">Auteur</label><br />
+        <input type="text" id="fullname" name="fullname" />
     </div>
     <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
+        <label for="content">Commentaire</label><br />
+        <textarea id="content" name="content"></textarea>
     </div>
     <div>
         <input type="submit" />
@@ -43,3 +43,4 @@ while ($comment = $comments->fetch())
 <?php $contentPage = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
+
