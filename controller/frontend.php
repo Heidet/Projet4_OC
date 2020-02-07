@@ -20,14 +20,14 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    include('views/frontend/postView.php');
+    include('views/frontend/detailPost.php');
 }
 
 function addComment($postId, $fullname, $content)
 {
-    $commentManager = new CommentManager();
+    $commentManager = new CommentManager(); // appel nouvelle objet CommentManager
 
-    $affectedLines = $commentManager->postComment($postId, $fullname, $content);
+    $affectedLines = $commentManager->postComment($postId, $fullname, $content); // rappel paramétre et fonction postComment avec préparation DB
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');

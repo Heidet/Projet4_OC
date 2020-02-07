@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL); // reporting des erreur sur la page
+ini_set("display_errors", 1);
 require_once('controller/frontend.php');
 require_once('controller/backend.php');
 
