@@ -6,13 +6,13 @@ require_once('models/CommentManager.php');
 
 function createPostViews()
 {
-   include('views/backend/CreatePostView.php');
+   include('views/backend/createPostView.php');
 }
 
 function addPost($title, $content) 
 {
-    $adminManager = new PostManager();
-    $affectedLines = $adminManager->newPost($title, $content);
+    $postManager = new PostManager();
+    $affectedLines = $postManager->addPost($title, $content);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le nouveau chapitre !');
@@ -32,5 +32,21 @@ function listPostsAdmin()
 
 function deletePost($postId)
 {
-    
+    $postManager = new PostManager();
+    $affectedLines = $postManager->deletePost($postId);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de supprimer cet article !');
+    }
+    else {
+        //echo "ajout ok";
+        header('Location: index.php?action=listPostsAdmin'); //Pour rester sur la même page une fois l'action supprimer.
+    }
+}
+function editPostView($id)
+{
+    $postManager = new PostManager(); // Création d'un objet
+    $post = $postManager->getPost($id); // Appel d'une fonction de cet objet
+
+    include('views/backend/editPostView.php'); // inclure dans views front end listposts
 }

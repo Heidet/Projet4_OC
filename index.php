@@ -31,10 +31,10 @@ if (isset($_GET['action'])) {
         }
     }
     elseif ($_GET['action'] == 'addPost') {
-        if (isset($_POST['title']) && isset($_POST['content'])) { //SI l'action addpost et si on à du contenu dans titre et contenu alors insertion post
-            addPost($_POST['title'], $_POST['content']); 
+        if (isset($_POST['title']) && isset($_POST['content'])) { //SI l'action addpost et si on à du contenu dans titre et contenu
+            addPost($_POST['title'], $_POST['content']);  //alors insertion post
         }
-        else {  // NON affichage vu post. 
+        else {  // SI NON affichage vu post. 
             createPostViews();
         }
     }
@@ -42,10 +42,23 @@ if (isset($_GET['action'])) {
         listPostsAdmin();
     }
     elseif ($_GET['action'] == 'deletePost' ) {
-       if ( isset($_GET['id']) && $_GET['id'] > 0) {
-            deletePost(); 
+       if (isset($_GET['id']) && $_GET['id'] > 0) {
+            deletePost($_GET['id']); 
        }
        else {
+            echo 'Erreur : Veuillez specifier l\'article à supprimer !';
+       }
+    }
+    elseif ($_GET['action'] == 'editPost') { // SI l'action et edit post 
+        if (isset($_GET['id']) && $_GET['id'] > 0) {  // ET SI l'id et bien défini  ( vérification isset) 2 OPTION = 
+            if(isset($_POST['title']) && isset($_POST['content'])){ // SI les données du form on ete poster 
+                 editPost($_GET['id'],  $_POST['title'], $_POST['content']);// alors edition article 
+            }
+            else{ // NON c'est que le formulaire n'a pas été valider 
+                editPostView($_GET['id']); // Donc vue édition post 
+            }
+       }
+       else{
             echo 'Erreur : Veuillez specifier l\'article à supprimer !';
        }
     }

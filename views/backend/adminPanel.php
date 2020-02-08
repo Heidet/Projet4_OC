@@ -7,7 +7,7 @@
 						<h2>DashBoard <b>Administrateur</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="/?action=addPost" class="btn btn-success mb-3" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter un article</span></a>						
+						<a href="/?action=addPost" class="btn btn-success mb-3" ><i class="material-icons">&#xE147;</i> <span>Ajouter un article</span></a>						
 					</div>
                 </div>
             </div>
@@ -38,12 +38,13 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td><?= htmlspecialchars($data['title']) ?></td>
-                                <td><?= htmlspecialchars($data['content']) ?></td>
+                                <td><?= $data['title'] ?></td>
+                                <td><?= $data['content'] ?></td>
                                 <td><?= $data['date'] ?></td>
                                 <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="/?action=editPost&id=<?= $data['id'] ?>" class="edit" ><i class="material-icons" title="Edit" >&#xE254;</i></a>
+                                    <a href="/?action=deletePost&id=<?= $data['id'] ?>" class="delete" 
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article?');" ><i class="material-icons" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
                         </tbody>
