@@ -11,15 +11,15 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            <h2 class="card-title"><?= htmlspecialchars($post['title']) ?></h2>
-            <p class="card-text"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+            <h2 class="card-title"><?= htmlspecialchars($post['title']) ?></h2> <!-- Pour échapper le code HTML, il suffit d'utiliser la fonctionhtmlspecialchars -->
+            <p class="card-text"><?= nl2br(htmlspecialchars($post['content'])) ?></p> <!-- nl2br ajoute insère un retour à la ligne HTML -->
         </div>
         <div class="card-footer text-muted"><?= $post['date'] ?></div>
     </div>
 
     <?php foreach ($comments as $comment): ?><!-- parcourir les comment  -->
     <div class="media mb-4">
-        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <img class="d-flex mr-3 rounded-circle" src="../public/img/User.jpg" alt="">
         <div class="media-body">
             <h5 class="mt-0"><?= htmlspecialchars($comment['fullname']) ?></h5> <!-- afficher le nom  -->
                 <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p> <!-- parcourir le contenu  -->
@@ -27,7 +27,6 @@
         </div>
     </div>
     <?php endforeach; ?><!-- stop parcourir -->
-
 
     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
             <h2>Commentaires</h2>

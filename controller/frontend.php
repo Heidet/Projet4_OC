@@ -6,10 +6,10 @@ require_once('models/CommentManager.php');
 
 function listPosts()
 {
-    $postManager = new PostManager(); // Cr�ation d'un objet
+    $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 
-    include('views/frontend/listPostsView.php');
+    include('views/frontend/listPostsView.php'); // inclure dans views front end listposts
 }
 
 function post()

@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
             post();
         }
         else {
-            echo 'Erreur : aucun identifiant de billet envoy�';
+            echo 'Erreur : aucun identifiant de billet envoyé';
         }
     }
     elseif ($_GET['action'] == 'addComment') {
@@ -27,11 +27,13 @@ if (isset($_GET['action'])) {
             }
         }
         else {
-            echo 'Erreur : aucun identifiant de billet envoy�';
+            echo 'Erreur : aucun identifiant de billet envoyés';
         }
     }
-    elseif ($_GET['action'] == 'createPost') { 
-            createPost();
+    elseif (isset($_GET['action'])) {
+        if ($_GET['action'] == 'adminPanel') {
+            listPostsAdmin();
+        }
     }
 }
 else {

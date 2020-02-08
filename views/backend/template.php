@@ -1,40 +1,23 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Blog Jean Forteroche, écrivain">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>Starter Template · Bootstrap</title>
-
+  <title>CRUD</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
 </head>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <!-- <i class="fa fa-biking"></i> -->
         <div class="container-fluid">
           <i class="fa fa-book"></i>
-          <a class="navbar-brand pl-3" href="#">Jean Forteroche</a>
+          <a class="navbar-brand pl-3" href="index.php">Jean Forteroche</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,9 +43,7 @@
         </div>
     </nav>
 
-    <?php echo $contentPage ?>
-
-    
+    <?php echo $contentPage ?> 
 
 <body>
 <?php //echo date('d/m/Y h:i:s'); ?>

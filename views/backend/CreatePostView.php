@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <p class="retour">
-    <a href="index.php?action=ListPostsView">
+    <a href="index.php?action=">
         <button class="btn btn-info">Retour</button>
     </a>
 </p>
