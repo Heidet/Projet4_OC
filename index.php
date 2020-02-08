@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
         }
     }
     elseif (isset($_GET['action'])) {
-        if ($_GET['action'] == 'adminPanel') {
+        if ($_GET['action'] == 'listPostsAdmin') {
             listPostsAdmin();
         }
     }
