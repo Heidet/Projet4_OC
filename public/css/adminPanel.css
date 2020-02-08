@@ -5,6 +5,9 @@
 		font-family: 'Varela Round', sans-serif;
 		font-size: 13px;
 	}
+	.navbar {
+		border-radius: 0px !important;	
+	}
 	.table-wrapper {
         background: #fff;
         padding: 20px 25px;

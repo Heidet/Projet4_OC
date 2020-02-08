@@ -7,8 +7,7 @@
 						<h2>DashBoard <b>Administrateur</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="CreatePostView.php" class="btn btn-success mb-3" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter un article</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger mb-3" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Supprimer</span></a>						
+						<a href="/?action=addPost" class="btn btn-success mb-3" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter un article</span></a>						
 					</div>
                 </div>
             </div>

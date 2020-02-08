@@ -3,11 +3,11 @@ require_once('Manager.php');
 class PostManager extends Manager
 {
 
-    public function newPost()
+    public function newPost($title, $content)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("INSERT INTO `posts` (`title`, `date`, `content` ) VALUES (:title, CURRENT_TIMESTAMP, :content);");
-        $affectedLines = $req->execute(array($_POST['title'], $_POST['content']));
+        $req = $db->prepare("INSERT INTO `posts` (`title`, `date`, `content` ) VALUES (?, CURRENT_TIMESTAMP, ?);");
+        $affectedLines = $req->execute(array($title, $content)); // recupération title content 
 
         return $affectedLines;
     }
@@ -28,5 +28,9 @@ class PostManager extends Manager
         $post = $req->fetch();
 
         return $post;
+    }
+    public function deletePost($postId)
+    {
+        
     }
 }

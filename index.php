@@ -30,12 +30,28 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyés';
         }
     }
-    elseif (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPostsAdmin') {
-            listPostsAdmin();
+    elseif ($_GET['action'] == 'addPost') {
+        if (isset($_POST['title']) && isset($_POST['content'])) { //SI l'action addpost et si on à du contenu dans titre et contenu alors insertion post
+            addPost($_POST['title'], $_POST['content']); 
+        }
+        else {  // NON affichage vu post. 
+            createPostViews();
         }
     }
-}
+    elseif ($_GET['action'] == 'listPostsAdmin') {
+        listPostsAdmin();
+    }
+    elseif ($_GET['action'] == 'deletePost' ) {
+       if ( isset($_GET['id']) && $_GET['id'] > 0) {
+            deletePost(); 
+       }
+       else {
+            echo 'Erreur : Veuillez specifier l\'article à supprimer !';
+       }
+    }
+}       
+
+
 else {
     listPosts();
 }
