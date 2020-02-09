@@ -32,12 +32,6 @@
 
                         <tbody>
                             <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
                                 <td><?= $data['title'] ?></td>
                                 <td><?= $data['content'] ?></td>
                                 <td><?= $data['date'] ?></td>

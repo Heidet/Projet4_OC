@@ -41,7 +41,7 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare("UPDATE posts SET title = ?, content = ?  WHERE id = ?"); // mettre à jour la table poste ( titre = 1 champs, contenu = 2 ème champs) quand l'id = son ID 
-        $affectedLines = $req->execute(array($title, $content)); // recupération title content 
+        $affectedLines = $req->execute(array($title, $content, $postId)); // recupération title content 
 
         return $affectedLines;
     }

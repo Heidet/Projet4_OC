@@ -19,7 +19,7 @@ function addPost($title, $content)
     }
     else {
         //echo "ajout ok";
-        header('Location: index.php?action=listPostsAdmin'); //redirection sur crud admin une fois l'action fini . 
+        header('Location: index.php?action=adminPanel'); //redirection sur crud admin une fois l'action fini . 
     }
 }
 function listPostsAdmin()
@@ -40,7 +40,7 @@ function deletePost($postId)
     }
     else {
         //echo "ajout ok";
-        header('Location: index.php?action=listPostsAdmin'); //Pour rester sur la même page une fois l'action supprimer.
+        header('Location: index.php?action=adminPanel'); //Pour rester sur la même page une fois l'action supprimer.
     }
 }
 function editPostView($id)
@@ -49,4 +49,17 @@ function editPostView($id)
     $post = $postManager->getPost($id); // Appel d'une fonction de cet objet
 
     include('views/backend/editPostView.php'); // inclure dans views front end listposts
+}
+function editPost($postId, $title, $content)
+{
+    $postManager = new PostManager();
+    $affectedLines = $postManager->editPost($postId, $title, $content);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de modifier cet article !'); // lever l'exception XXXX 
+    }
+    else {
+        //echo "ajout ok";
+        header('Location: index.php?action=adminPanel'); //Pour rester sur la même page une fois l'action supprimer.
+    }
 }

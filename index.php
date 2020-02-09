@@ -38,7 +38,7 @@ if (isset($_GET['action'])) {
             createPostViews();
         }
     }
-    elseif ($_GET['action'] == 'listPostsAdmin') {
+    elseif ($_GET['action'] == 'adminPanel') {
         listPostsAdmin();
     }
     elseif ($_GET['action'] == 'deletePost' ) {
