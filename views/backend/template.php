@@ -31,15 +31,11 @@
                 <a class="nav-link" href="/contact.php">Contact</a>
               </li>
           </div>
-          <form class="form-inline navbar-form navbar-right" action="administration.php" method="POST">
-            <!-- <div class="form-group pr-1">
-            <input name="login" type="text" id="login" placeholder="Identifiant" class="form-control">
-          </div>
-          <div class="form-group">
-            <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control">
-          </div>-->
-            <button type="submit" class="btn btn-success">Connexion</button>
-          </form>
+          <?php if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){ ?>
+            <a href="index.php?action=deconnexion" class="btn btn-danger">Deconnexion</a>
+          <?php } else{
+              ?><a href="index.php?action=connexion" class="btn btn-success">Connexion</a>
+         <?php } ?>
         </div>
     </nav>
 

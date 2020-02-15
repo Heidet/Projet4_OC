@@ -20,5 +20,28 @@ class CommentManager extends Manager
 
         return $affectedLines; // retourne le resultat requete 
     }
+    
+    public function signal($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("UPDATE comments SET `signal` = 1 WHERE id = ?");  
+        $affectedLines = $req->execute(array($commentId)); // recupération title content 
+        
+        return $affectedLines;
+    }
+    public function getSignals()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT * FROM comments WHERE `signal` = 1 ORDER BY id DESC');
 
+        return $req;
+    }
+    public function deleteComment($commentId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $affectedLines = $req->execute(array($commentId));
+
+        return $affectedLines; 
+    }
 }

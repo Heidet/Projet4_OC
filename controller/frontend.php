@@ -3,6 +3,7 @@
 // Chargement des classes
 require_once('models/PostManager.php');
 require_once('models/CommentManager.php');
+require_once('models/adminManager.php');
 
 function listPosts()
 {
@@ -34,5 +35,34 @@ function addComment($postId, $fullname, $content)
     }
     else {
         header('Location: index.php?action=post&id=' . $postId);
+    }
+}
+function connexionView()
+{
+   include('views/frontend/adminConnect.php'); // inclure dans views front end listposts
+}
+function checkConnexion($username, $password)
+{
+
+    $adminManager = new adminManager();
+    if($adminManager->checkConnexion($username, $password) == 1 ){
+        $_SESSION['Logged'] = true;
+        echo 'Bravo tu est bien connecter';
+        header('Location: index.php?action=adminPanel');
+    }
+    return $adminManager->checkConnexion($username, $password);
+
+}
+function signaler($commentId)
+{
+    $commentManager = new CommentManager(); // appel nouvelle objet CommentManager
+
+    $affectedLines = $commentManager->signal($commentId); // rappel paramétre et fonction postComment avec préparation DB
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible de signaler le commentaire !');
+    }
+    else {
+        echo 'Commentaire bien signaler';
     }
 }

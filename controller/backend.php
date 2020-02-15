@@ -1,5 +1,9 @@
 <?php
+ if(!isset($_SESSION['Logged']) || $_SESSION['Logged'] !=  true){
+    header('Location: index.php?action=connexion');
+ } // Si le mot de passe est bon sur les connexion des pages BackEnd
 
+ 
 // Chargement des classes
 require_once('models/PostManager.php');
 require_once('models/CommentManager.php');
@@ -26,7 +30,8 @@ function listPostsAdmin()
 {
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
-
+    $commentManager = new CommentManager(); // Création d'un objet
+    $comments = $commentManager->getSignals(); // Appel d'une fonction de cet objet
     include('views/backend/adminPanel.php'); // inclure dans views front end listposts
 }
 
@@ -63,3 +68,16 @@ function editPost($postId, $title, $content)
         header('Location: index.php?action=adminPanel'); //Pour rester sur la même page une fois l'action supprimer.
     }
 }
+function deleteComment($commentId)
+    {
+        $commentManager = new CommentManager();
+        $affectedLines = $commentManager->deleteComment($commentId);
+    
+        if ($affectedLines === false) {
+            throw new Exception('Impossible de supprimer ce commentaire !'); // lever l'exception XXXX 
+        }
+        else {
+            //echo "ajout ok";
+            header('Location: index.php?action=adminPanel');
+        }
+    }

@@ -33,3 +33,6 @@ CREATE TABLE `blog`.`author` (
 
 
 INSERT INTO `comments` (`id`, `fullname`, `content`, `date`, `post_id`) VALUES ('1', 'jeremy', 'ce blog pu la merde ', CURRENT_TIMESTAMP, '9');
+
+INSERT INTO `author` (`id`, `username`, `hash`) VALUES (NULL, 'Admin', '10ba96ee556a54672557751997f9bbaad3c9d54776ef3ccad092f80d2436cb72');
+ALTER TABLE `comments` CHANGE `signal` `signal` INT(1) NOT NULL DEFAULT '0';

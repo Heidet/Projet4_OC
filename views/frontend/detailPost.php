@@ -24,6 +24,7 @@
             <h5 class="mt-0"><?= htmlspecialchars($comment['fullname']) ?></h5> <!-- afficher le nom  -->
                 <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p> <!-- parcourir le contenu  -->
                 <p>Poster le : <date><?= $comment['date'] ?></date></p><!-- parcourir les date  -->
+                <a href="index.php?action=signaler&commentId=<?=$comment['id']?> " class="btn btn-sm btn-danger">Signaler</a>
         </div>
     </div>
     <?php endforeach; ?><!-- stop parcourir -->
