@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Blog Jean Forteroche, écrivain">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>Starter Template · Bootstrap</title>
+  <title><?php $title ?></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="public/css/app.css" rel="stylesheet">
 
@@ -51,52 +51,8 @@
          <?php } ?>
         </div>
     </nav>
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../public/img/alaska1.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Bonjour</h5>
-                    <p>Bienvenue sur mon blog.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="../public/img/alaska2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Jean Forteroche, Ecrivain.</h5>
-                    <p>Titre du livre "Billet simple pour l'Alaska".</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="../public/img/alaska3.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Chapitre du célébre livre</h5>
-                    <p>Je plublirais du contenu sur ce blog et vous pourrez commenter.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <div class="jumbotron">
-      <div class="container">
-          <h1>Biographie</h1>
-          <p>Jean Forteroche, né le 12 Avril 1980 à Boston dans le Massachussetts, est un écrivain Français (bénéficiant aussi par sa naissance d'un passeport américain).
-              Jean Forteroche publie son premier livre, intitulé L'enfant qui venait des étoiles, en 1998. Il a obtenu le prix des libraires avec L'ombre du vent en 2003. Son roman le plus connu, l'écho de ton souvenir, est traduit dans 15 langues à travers le monde. 
-              Actuellement, Jean Forteroche travaille sur son prochain roman, "Billet simple pour l'Alaska" et le publie par épisode en ligne sur ce site.</p>
-      </div>
-    </div>
+   
+    
 
     <?php echo $contentPage ?> <!-- affichage contenu de la variable contentPage qui affiche le contenu -->
 	 

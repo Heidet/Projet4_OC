@@ -1,5 +1,5 @@
 
-<?php $title = 'Jean Forteroche'; ?>
+<?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 
 <?php ob_start(); 
@@ -27,4 +27,4 @@ while ($data = $posts->fetch()) {
 
 		
 <?php $contentPage = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+<?php require('template_accueil.php'); ?>

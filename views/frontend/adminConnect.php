@@ -1,3 +1,5 @@
+<?php $title = 'DashBaoard'; ?>
+
 <?php ob_start(); ?>
 
 <div class="container pt-5">
@@ -31,4 +33,4 @@
 </div>
 
 <?php $contentPage =  ob_get_clean();?> 
-<?php require('template_connexion.php')?>                          		                            
+<?php require('template.php')?>                          		                            
