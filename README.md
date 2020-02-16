@@ -23,9 +23,8 @@
 👤 **Antoine Heidet**
 
 * Website: Antoine Heidet web site
-* Twitter: [@none](https://twitter.com/none)
 * Github: [@https:\/\/github.com\/heidet](https://github.com/https:\/\/github.com\/heidet)
-* LinkedIn: [@none](https://linkedin.com/in/none)
+* LinkedIn: https://fr.linkedin.com/in/antoine-heidet
 
 ## Decription
 
@@ -43,13 +42,6 @@ L'interface d'administration sera protégée par mot de passe. La rédaction de 
 
 Vous développerez en PHP sans utiliser de framework pour vous familiariser avec les concepts de base de la programmation. Le code sera construit sur une architecture MVC. Vous développerez autant que possible en orienté objet (au minimum, le modèle doit être construit sous forme d'objet).
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-<a href="https://www.patreon.com/none">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
 
 ## 📝 License
 
