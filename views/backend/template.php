@@ -27,9 +27,6 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/index.php">Accueil <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact.php">Contact</a>
-              </li>
           </div>
           <?php if(isset($_SESSION['Logged']) && $_SESSION['Logged'] =  true){ ?>
             <a href="index.php?action=deconnexion" class="btn btn-danger">Deconnexion</a>

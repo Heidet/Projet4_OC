@@ -14,12 +14,6 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th>
                         <th>Titre</th>
                         <th>Contenu</th>
 						<th>Date</th>
@@ -54,22 +48,13 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>DashBoard <b>Administrateur</b></h2>
-					</div>
-					<div class="col-sm-6">
-						<a href="/?action=addPost" class="btn btn-success mb-3" ><i class="material-icons">&#xE147;</i> <span>Ajouter un article</span></a>						
+						<h2>DashBoard <b> Signalement</b></h2>
 					</div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-						<th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th>
                         <th>Id</th>
                         <th>Commentaire</th>
                         <th>Actions</th>

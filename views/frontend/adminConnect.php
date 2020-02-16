@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<div class="container">
+<div class="container pt-5">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -22,7 +22,7 @@
 						<input type="password" name="password" class="form-control" placeholder="password">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Valider" class="btn float-right login_btn">
+						<input type="submit" value="Valider" class="btn btn-success">
 					</div>
 				</form>
 			</div>
@@ -31,4 +31,4 @@
 </div>
 
 <?php $contentPage =  ob_get_clean();?> 
-<?php require('template.php')?>                          		                            
+<?php require('template_connexion.php')?>                          		                            

@@ -1,4 +1,3 @@
-<?php $title = 'Ajoute un post'; ?>
 
 <?php ob_start(); ?>
 

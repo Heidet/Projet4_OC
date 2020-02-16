@@ -1,5 +1,3 @@
-
-
 <?php ob_start(); ?>
 
 <div class="container" style="margin-top: 15px;" id="page_chapitre">
