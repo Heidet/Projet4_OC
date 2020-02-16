@@ -22,7 +22,7 @@
 
 👤 **Antoine Heidet**
 
-* Website: Antoine Heidet
+* Website: Antoine Heidet web site
 * Twitter: [@none](https://twitter.com/none)
 * Github: [@https:\/\/github.com\/heidet](https://github.com/https:\/\/github.com\/heidet)
 * LinkedIn: [@none](https://linkedin.com/in/none)
