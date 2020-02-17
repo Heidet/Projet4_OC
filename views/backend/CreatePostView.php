@@ -1,4 +1,4 @@
-
+<?php $titre_page = "Créer un article"; ?>
 <?php ob_start(); ?>
 
 <p class="retour">

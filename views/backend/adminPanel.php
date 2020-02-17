@@ -1,3 +1,4 @@
+<?php $titre_page = "DashBoard"; ?>
 <?php ob_start(); ?>
     <div class="container mt-5">
         <div class="table-wrapper">

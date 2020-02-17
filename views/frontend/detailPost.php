@@ -1,10 +1,10 @@
 
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $titre_page = htmlspecialchars($post['title']); ?>
 <?php ob_start(); ?>
 
 <div class="container" style="margin-top: 15px;" id="page_chapitre">
     <p class="bouton_retour pt3">
-        <a href="shttp://localhost:8888/">
+        <a href="/index.php">
             <button class="btn btn-info">Retour</button>
         </a>
     </p>

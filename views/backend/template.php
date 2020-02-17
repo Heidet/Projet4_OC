@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Blog Jean Forteroche, écrivain">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>CRUD</title>
+  <title><?= $titre_page ?></title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- Bootstrap core CSS -->

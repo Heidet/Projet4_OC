@@ -1,4 +1,4 @@
-<?php $title = 'DashBaoard'; ?>
+<?php $titre_page = 'DashBaoard'; ?>
 
 <?php ob_start(); ?>
 

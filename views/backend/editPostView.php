@@ -1,4 +1,4 @@
-<?php $title = "editer"; ?>
+<?php $titre_page = "Editer "; ?>
 
 <?php ob_start(); ?>
 

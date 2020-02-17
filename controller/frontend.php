@@ -47,7 +47,6 @@ function checkConnexion($username, $password)
     $adminManager = new adminManager();
     if($adminManager->checkConnexion($username, $password) == 1 ){
         $_SESSION['Logged'] = true;
-        echo 'Bravo tu est bien connecter';
         header('Location: index.php?action=adminPanel');
     }
     return $adminManager->checkConnexion($username, $password);

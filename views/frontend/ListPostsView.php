@@ -1,5 +1,5 @@
 
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $titre_page = 'Billet simple pour l\'Alaska'; ?>
 
 
 <?php ob_start(); 

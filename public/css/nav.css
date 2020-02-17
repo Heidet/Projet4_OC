@@ -1,0 +1,54 @@
+.d-block  {
+    height: 100vh;
+}
+.carousel-item {
+  transition: 2s;
+  animation: 19s slide infinite;
+}
+.navbar.navbar-expand-lg.navbar-dark {
+    background-color: transparent !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.fa.fa-book {
+  color: #17a2b8;
+  font-size: 30px;
+}
+.carousel-caption.d-none.d-md-block > h3 {
+  font-family : Snell Roundhand, cursive !important;
+  font-size: 35px;
+}
+.carousel-caption.d-none.d-md-block > p {
+  font-family : Snell Roundhand, cursive !important;
+  font-size: 25px;
+}
+.carousel-caption.d-none.d-md-block {
+ 	position: absolute;
+	left: -5% !important;
+    top: 530px !important;
+    right: 66% !important;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #17a2b8 !important;
+    text-align: center;
+    float: right;
+}
+.carousel-indicators {
+  bottom: 10px !important;
+}
+.carousel-caption.d-none.d-md-block {
+  position: absolute;
+  left: -40%;
+  top: 250px;
+  right: 70%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color:
+  #fff;
+  text-align: center;
+  float: right;
+}
